@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alzheimer's Disease & Exercise — Interactive Scientific Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Atmospheric background layer: particles + gradients + neural links -->
+    <div class="atmosphere" aria-hidden="true">
+      <div class="aurora aurora-a"></div>
+      <div class="aurora aurora-b"></div>
+      <div id="particle-field" class="particle-field"></div>
+      <div class="network">
+        <span class="line l1"></span>
+        <span class="line l2"></span>
+        <span class="line l3"></span>
+        <span class="line l4"></span>
+      </div>
+    </div>
+
+    <header class="top-bar glass">
+      <div class="brand">NeuroFlux · Phase 1 Prototype</div>
+      <nav>
+        <a href="#hero">Start</a>
+        <a href="#healthy-vs-alz">Compare</a>
+        <a href="#exercise-response">Exercise</a>
+        <a href="#final-message">Conclusion</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section -->
+      <section id="hero" class="panel cinematic">
+        <div class="content glass">
+          <p class="eyebrow">Scientific Storytelling Prototype</p>
+          <h1>Alzheimer’s Disease & Exercise</h1>
+          <p>
+            A visual narrative exploring neural decline and how structured movement may support
+            brain resilience.
+          </p>
+          <button class="cta" data-scroll="#healthy-vs-alz">Enter the Brain</button>
+        </div>
+        <div class="brain-wrap" aria-hidden="true">
+          <div class="brain-glow"></div>
+          <div class="brain-shape">
+            <span class="hemisphere left"></span>
+            <span class="hemisphere right"></span>
+            <span class="signal s1"></span>
+            <span class="signal s2"></span>
+            <span class="signal s3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Healthy Brain vs Alzheimer Brain section -->
+      <section id="healthy-vs-alz" class="panel">
+        <div class="grid two-col">
+          <article class="glass state healthy">
+            <h2>Healthy Brain</h2>
+            <ul>
+              <li>Dense synaptic connectivity</li>
+              <li>Efficient glucose metabolism</li>
+              <li>Balanced neuroinflammation</li>
+            </ul>
+          </article>
+          <article class="glass state diseased">
+            <h2>Alzheimer Brain</h2>
+            <ul>
+              <li>Synaptic and neuronal loss</li>
+              <li>Amyloid plaque accumulation</li>
+              <li>Tau pathology and network breakdown</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Inside the Brain section -->
+      <section id="inside-brain" class="panel">
+        <div class="content glass">
+          <h2>Inside the Brain</h2>
+          <p>Regions coordinating memory, navigation, and executive function become vulnerable.</p>
+          <div class="node-map" aria-hidden="true">
+            <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
+            <span class="node n4"></span><span class="node n5"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Amyloid Plaque section -->
+      <section id="amyloid" class="panel disease-tone">
+        <div class="content glass">
+          <h2>Amyloid Plaque</h2>
+          <p>Extracellular deposits disrupt signaling landscapes and stress surrounding cells.</p>
+          <div class="cluster amyloid-cluster" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Tau Tangle section -->
+      <section id="tau" class="panel disease-tone">
+        <div class="content glass">
+          <h2>Tau Tangle</h2>
+          <p>Intracellular tangles destabilize microtubules and impair transport pathways.</p>
+          <div class="tangle" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Synapse Collapse section -->
+      <section id="synapse" class="panel disease-tone">
+        <div class="content glass">
+          <h2>Synapse Collapse</h2>
+          <p>Communication nodes weaken, causing fragmented network timing and cognition decline.</p>
+          <div class="synapse-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercise Response section -->
+      <section id="exercise-response" class="panel recovery-tone">
+        <div class="content glass">
+          <h2>Exercise Response</h2>
+          <p>Activity stimulates circulation, trophic signaling, and plasticity-supportive pathways.</p>
+          <div class="pulse-lanes" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Muscle to Brain Pathway section -->
+      <section id="muscle-brain" class="panel recovery-tone">
+        <div class="content glass pathway-card">
+          <h2>Muscle to Brain Pathway</h2>
+          <p>Myokines and vascular signals may help regulate inflammation and support cognition.</p>
+          <div class="pathway" aria-hidden="true">
+            <div class="source">Muscle</div>
+            <div class="arrow"></div>
+            <div class="target">Brain</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final message section -->
+      <section id="final-message" class="panel cinematic final">
+        <div class="content glass">
+          <h2>Movement Is a Biological Signal</h2>
+          <p>
+            This prototype frames Alzheimer’s not only as degeneration, but as a system where
+            interventions can shape risk trajectories.
+          </p>
+          <button class="cta" data-scroll="#hero">Restart Story</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
