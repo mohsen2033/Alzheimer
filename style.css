@@ -16,11 +16,16 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  font-family: "Vazirmatn", "Noto Naskh Arabic", "Tahoma", "Segoe UI", sans-serif;
   scroll-behavior: smooth;
 }
 
-body { overflow-x: hidden; }
+body {
+  overflow-x: hidden;
+  text-align: right;
+  line-height: 1.8;
+}
+
 
 /* Atmospheric scientific background */
 .atmosphere {
@@ -81,7 +86,7 @@ body { overflow-x: hidden; }
   z-index: 30;
 }
 .brand { font-weight: 600; letter-spacing: 0.03em; }
-nav a { color: var(--muted); margin-left: 1rem; text-decoration: none; }
+nav a { color: var(--muted); margin-inline-start: 1rem; text-decoration: none; }
 nav a:hover { color: var(--ink); }
 
 .panel {
@@ -104,10 +109,10 @@ nav a:hover { color: var(--ink); }
   width: min(840px, 100%);
   padding: clamp(1.2rem, 2vw, 2rem);
 }
-.content h1 { font-size: clamp(2rem, 5vw, 4rem); margin: 0.2rem 0 0.8rem; }
-.content h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-top: 0; }
-.content p, li { color: var(--muted); line-height: 1.6; }
-.eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; color: #9cd6ff; }
+.content h1 { font-size: clamp(2.1rem, 5vw, 4.1rem); margin: 0.2rem 0 1rem; line-height: 1.4; }
+.content h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); margin-top: 0; line-height: 1.55; }
+.content p, li { color: var(--muted); line-height: 2; font-size: clamp(1rem, 1.4vw, 1.1rem); }
+.eyebrow { letter-spacing: 0.02em; font-size: 0.88rem; color: #9cd6ff; margin-bottom: 0.35rem; }
 
 .grid.two-col {
   width: min(1000px, 100%);
@@ -210,3 +215,8 @@ nav a:hover { color: var(--ink); }
   nav { display: none; }
   .top-bar { justify-content: center; }
 }
+
+.section-intro { margin-bottom: 1rem; text-align: center; }
+.state ul { margin: 0.6rem 0 0; padding-inline-start: 1.2rem; }
+.pathway { direction: rtl; }
+.pathway .arrow::after { right: auto; left: 20%; border-left-color: transparent; border-right-color: #68acff; }
