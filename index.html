@@ -43,13 +43,44 @@
         </div>
         <div class="brain-wrap" aria-hidden="true">
           <div class="brain-glow"></div>
-          <div class="brain-shape">
-            <span class="hemisphere left"></span>
-            <span class="hemisphere right"></span>
-            <span class="signal s1"></span>
-            <span class="signal s2"></span>
-            <span class="signal s3"></span>
-          </div>
+          <!-- SVG Brain System Start -->
+          <svg class="brain-svg hero-brain" viewBox="0 0 700 430" role="img" aria-label="نمای علمی مغز">
+            <defs>
+              <linearGradient id="heroStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#99ddff" />
+                <stop offset="100%" stop-color="#8b9bff" />
+              </linearGradient>
+            </defs>
+            <g class="hemispheres">
+              <path class="hemi left" d="M330 85 C255 48,165 72,130 146 C98 214,124 301,200 342 C252 370,302 361,334 320 C345 247,343 167,330 85 Z"/>
+              <path class="hemi right" d="M370 85 C445 48,535 72,570 146 C602 214,576 301,500 342 C448 370,398 361,366 320 C355 247,357 167,370 85 Z"/>
+            </g>
+            <g class="network-lines">
+              <path d="M195 175 C240 150,285 160,334 200"/>
+              <path d="M190 245 C252 220,290 235,336 270"/>
+              <path d="M505 175 C460 150,415 160,366 200"/>
+              <path d="M510 245 C448 220,410 235,364 270"/>
+              <path d="M292 125 C328 152,338 183,350 212"/>
+              <path d="M408 125 C372 152,362 183,350 212"/>
+            </g>
+            <g class="signal-nodes">
+              <circle cx="242" cy="160" r="6"/><circle cx="283" cy="228" r="5"/><circle cx="320" cy="182" r="4.5"/>
+              <circle cx="458" cy="162" r="6"/><circle cx="418" cy="232" r="5"/><circle cx="380" cy="184" r="4.5"/>
+            </g>
+            <g class="hippocampus">
+              <path d="M302 268 C315 251,338 248,350 263 C363 248,385 251,398 268 C387 290,370 303,350 305 C330 303,313 290,302 268 Z"/>
+            </g>
+            <g class="plaque-dots">
+              <circle cx="225" cy="125" r="4"/><circle cx="268" cy="285" r="3.5"/><circle cx="432" cy="120" r="4"/>
+              <circle cx="468" cy="282" r="3.5"/><circle cx="350" cy="140" r="3.2"/>
+            </g>
+            <g class="tau-marks">
+              <path d="M248 204 q12 -8 22 2 q-12 10 -22 -2 z"/>
+              <path d="M430 210 q12 -8 22 2 q-12 10 -22 -2 z"/>
+              <path d="M338 242 q13 -9 25 3 q-13 10 -25 -3 z"/>
+            </g>
+          </svg>
+          <!-- SVG Brain System End -->
         </div>
       </section>
 
@@ -61,6 +92,11 @@
         <div class="grid two-col">
           <article class="glass state healthy">
             <h2>مغز سالم</h2>
+            <!-- SVG Brain System Start -->
+            <svg class="brain-svg compare-brain healthy-brain" viewBox="0 0 520 320" aria-hidden="true">
+              <use href="#brain-shape-base"></use>
+            </svg>
+            <!-- SVG Brain System End -->
             <ul>
               <li>اتصال‌های سیناپسی (Synapse) متراکم و کارآمد</li>
               <li>متابولیسم گلوکز پایدار و بهینه</li>
@@ -69,6 +105,11 @@
           </article>
           <article class="glass state diseased">
             <h2>مغز درگیر آلزایمر</h2>
+            <!-- SVG Brain System Start -->
+            <svg class="brain-svg compare-brain diseased-brain" viewBox="0 0 520 320" aria-hidden="true">
+              <use href="#brain-shape-base"></use>
+            </svg>
+            <!-- SVG Brain System End -->
             <ul>
               <li>کاهش سیناپس‌ها (Synapse) و نورون‌ها</li>
               <li>تجمع پلاک‌های آمیلوئید بتا (Amyloid-β)</li>
@@ -154,6 +195,41 @@
         </div>
       </section>
     </main>
+
+    <svg width="0" height="0" class="svg-symbols" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="brain-shape-base">
+          <g class="hemispheres">
+            <path class="hemi left" d="M240 62 C184 34,118 52,90 108 C65 162,84 231,140 264 C179 285,217 278,240 248 C248 191,247 123,240 62 Z"/>
+            <path class="hemi right" d="M280 62 C336 34,402 52,430 108 C455 162,436 231,380 264 C341 285,303 278,280 248 C272 191,273 123,280 62 Z"/>
+          </g>
+          <g class="network-lines">
+            <path d="M136 130 C174 108,210 116,244 147"/>
+            <path d="M132 187 C182 166,214 178,244 209"/>
+            <path d="M384 129 C346 108,310 116,276 147"/>
+            <path d="M388 187 C338 166,306 178,276 209"/>
+            <path d="M214 95 C241 116,250 136,260 159"/>
+            <path d="M306 95 C279 116,270 136,260 159"/>
+          </g>
+          <g class="signal-nodes">
+            <circle cx="176" cy="118" r="5.5"/><circle cx="208" cy="174" r="4.5"/><circle cx="230" cy="140" r="4"/>
+            <circle cx="344" cy="120" r="5.5"/><circle cx="311" cy="174" r="4.5"/><circle cx="290" cy="140" r="4"/>
+          </g>
+          <g class="hippocampus">
+            <path d="M220 208 C230 194,247 192,260 204 C273 192,290 194,300 208 C291 225,277 235,260 237 C243 235,229 225,220 208 Z"/>
+          </g>
+          <g class="plaque-dots">
+            <circle cx="160" cy="92" r="3.2"/><circle cx="192" cy="220" r="2.8"/><circle cx="324" cy="90" r="3.2"/>
+            <circle cx="352" cy="220" r="2.8"/><circle cx="262" cy="102" r="2.6"/>
+          </g>
+          <g class="tau-marks">
+            <path d="M180 156 q9 -6 16 2 q-8 8 -16 -2 z"/>
+            <path d="M324 159 q9 -6 16 2 q-8 8 -16 -2 z"/>
+            <path d="M251 184 q10 -7 18 2 q-9 8 -18 -2 z"/>
+          </g>
+        </g>
+      </defs>
+    </svg>
 
     <script src="app.js"></script>
   </body>
