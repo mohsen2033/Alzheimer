@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alzheimer's Disease & Exercise — Interactive Scientific Prototype</title>
+    <title>پلانک | روایت تصویری مغز و ورزش</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -21,12 +21,12 @@
     </div>
 
     <header class="top-bar glass">
-      <div class="brand">NeuroFlux · Phase 1 Prototype</div>
+      <div class="brand">پلانک | روایت تصویری مغز و ورزش</div>
       <nav>
-        <a href="#hero">Start</a>
-        <a href="#healthy-vs-alz">Compare</a>
-        <a href="#exercise-response">Exercise</a>
-        <a href="#final-message">Conclusion</a>
+        <a href="#hero">آغاز</a>
+        <a href="#healthy-vs-alz">مقایسه</a>
+        <a href="#exercise-response">ورزش</a>
+        <a href="#final-message">جمع‌بندی</a>
       </nav>
     </header>
 
@@ -34,13 +34,12 @@
       <!-- Hero section -->
       <section id="hero" class="panel cinematic">
         <div class="content glass">
-          <p class="eyebrow">Scientific Storytelling Prototype</p>
-          <h1>Alzheimer’s Disease & Exercise</h1>
+          <p class="eyebrow">روایت علمی تصویری</p>
+          <h1>آلزایمر و تمرینات ورزشی</h1>
           <p>
-            A visual narrative exploring neural decline and how structured movement may support
-            brain resilience.
+            سفری تصویری از تخریب ارتباطات مغز تا فعال شدن مسیرهای محافظتی با ورزش.
           </p>
-          <button class="cta" data-scroll="#healthy-vs-alz">Enter the Brain</button>
+          <button class="cta" data-scroll="#healthy-vs-alz">ورود به مغز</button>
         </div>
         <div class="brain-wrap" aria-hidden="true">
           <div class="brain-glow"></div>
@@ -54,33 +53,36 @@
         </div>
       </section>
 
-      <!-- Healthy Brain vs Alzheimer Brain section -->
+      <!-- مغز سالم vs مغز درگیر آلزایمر section -->
       <section id="healthy-vs-alz" class="panel">
+        <div class="content glass section-intro">
+          <h2>مغز سالم در برابر مغز درگیر آلزایمر</h2>
+        </div>
         <div class="grid two-col">
           <article class="glass state healthy">
-            <h2>Healthy Brain</h2>
+            <h2>مغز سالم</h2>
             <ul>
-              <li>Dense synaptic connectivity</li>
-              <li>Efficient glucose metabolism</li>
-              <li>Balanced neuroinflammation</li>
+              <li>اتصال‌های سیناپسی (Synapse) متراکم و کارآمد</li>
+              <li>متابولیسم گلوکز پایدار و بهینه</li>
+              <li>تعادل در التهاب عصبی</li>
             </ul>
           </article>
           <article class="glass state diseased">
-            <h2>Alzheimer Brain</h2>
+            <h2>مغز درگیر آلزایمر</h2>
             <ul>
-              <li>Synaptic and neuronal loss</li>
-              <li>Amyloid plaque accumulation</li>
-              <li>Tau pathology and network breakdown</li>
+              <li>کاهش سیناپس‌ها (Synapse) و نورون‌ها</li>
+              <li>تجمع پلاک‌های آمیلوئید بتا (Amyloid-β)</li>
+              <li>آسیب‌شناسی تاو (Tau) و فروپاشی شبکه‌های عصبی</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <!-- Inside the Brain section -->
+      <!-- درون مغز چه اتفاقی می‌افتد؟ section -->
       <section id="inside-brain" class="panel">
         <div class="content glass">
-          <h2>Inside the Brain</h2>
-          <p>Regions coordinating memory, navigation, and executive function become vulnerable.</p>
+          <h2>درون مغز چه اتفاقی می‌افتد؟</h2>
+          <p>ناحیه‌های مسئول حافظه، جهت‌یابی و کارکرد اجرایی به‌تدریج آسیب‌پذیر می‌شوند.</p>
           <div class="node-map" aria-hidden="true">
             <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
             <span class="node n4"></span><span class="node n5"></span>
@@ -88,55 +90,55 @@
         </div>
       </section>
 
-      <!-- Amyloid Plaque section -->
+      <!-- تجمع آمیلوئید بتا section -->
       <section id="amyloid" class="panel disease-tone">
         <div class="content glass">
-          <h2>Amyloid Plaque</h2>
-          <p>Extracellular deposits disrupt signaling landscapes and stress surrounding cells.</p>
+          <h2>تجمع آمیلوئید بتا</h2>
+          <p>رسوبات خارج‌سلولی آمیلوئید بتا (Amyloid-β) الگوی پیام‌رسانی را مختل کرده و به سلول‌های اطراف فشار وارد می‌کنند.</p>
           <div class="cluster amyloid-cluster" aria-hidden="true"></div>
         </div>
       </section>
 
-      <!-- Tau Tangle section -->
+      <!-- گره‌های تاو section -->
       <section id="tau" class="panel disease-tone">
         <div class="content glass">
-          <h2>Tau Tangle</h2>
-          <p>Intracellular tangles destabilize microtubules and impair transport pathways.</p>
+          <h2>گره‌های تاو</h2>
+          <p>گره‌های درون‌سلولی تاو (Tau) ریزلوله‌ها را ناپایدار کرده و مسیرهای انتقال در نورون را مختل می‌کنند.</p>
           <div class="tangle" aria-hidden="true"></div>
         </div>
       </section>
 
-      <!-- Synapse Collapse section -->
+      <!-- فروپاشی سیناپس‌ها section -->
       <section id="synapse" class="panel disease-tone">
         <div class="content glass">
-          <h2>Synapse Collapse</h2>
-          <p>Communication nodes weaken, causing fragmented network timing and cognition decline.</p>
+          <h2>فروپاشی سیناپس‌ها</h2>
+          <p>با تضعیف سیناپس‌ها (Synapse)، هماهنگی زمانی شبکه عصبی از بین می‌رود و افت شناختی تشدید می‌شود.</p>
           <div class="synapse-row" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
       </section>
 
-      <!-- Exercise Response section -->
+      <!-- پاسخ مغز به ورزش section -->
       <section id="exercise-response" class="panel recovery-tone">
         <div class="content glass">
-          <h2>Exercise Response</h2>
-          <p>Activity stimulates circulation, trophic signaling, and plasticity-supportive pathways.</p>
+          <h2>پاسخ مغز به ورزش</h2>
+          <p>فعالیت بدنی جریان خون، پیام‌رسانی تغذیه‌ای و مسیرهای پشتیبان نوروپلاستیسیته را تقویت می‌کند.</p>
           <div class="pulse-lanes" aria-hidden="true">
             <span></span><span></span><span></span>
           </div>
         </div>
       </section>
 
-      <!-- Muscle to Brain Pathway section -->
+      <!-- مسیر عضله تا حافظه section -->
       <section id="muscle-brain" class="panel recovery-tone">
         <div class="content glass pathway-card">
-          <h2>Muscle to Brain Pathway</h2>
-          <p>Myokines and vascular signals may help regulate inflammation and support cognition.</p>
+          <h2>مسیر عضله تا حافظه</h2>
+          <p>مایوکاین‌ها و پیام‌های عروقی می‌توانند التهاب را تنظیم کرده و از حافظه و شناخت پشتیبانی کنند؛ از جمله از مسیرهای مرتبط با BDNF.</p>
           <div class="pathway" aria-hidden="true">
-            <div class="source">Muscle</div>
+            <div class="source">عضله</div>
             <div class="arrow"></div>
-            <div class="target">Brain</div>
+            <div class="target">مغز</div>
           </div>
         </div>
       </section>
@@ -144,12 +146,11 @@
       <!-- Final message section -->
       <section id="final-message" class="panel cinematic final">
         <div class="content glass">
-          <h2>Movement Is a Biological Signal</h2>
+          <h2>حرکت، یک پیام زیستی است</h2>
           <p>
-            This prototype frames Alzheimer’s not only as degeneration, but as a system where
-            interventions can shape risk trajectories.
+            در این روایت، آلزایمر تنها یک روند تخریبی نیست؛ بلکه سامانه‌ای پویاست که مداخلات هدفمند می‌توانند مسیر خطر آن را تغییر دهند.
           </p>
-          <button class="cta" data-scroll="#hero">Restart Story</button>
+          <button class="cta" data-scroll="#hero">بازگشت به آغاز روایت</button>
         </div>
       </section>
     </main>
