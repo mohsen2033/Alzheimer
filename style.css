@@ -1,332 +1,59 @@
 :root {
-  --bg: #05060d;
-  --ink: #e9f2ff;
-  --muted: #9fb4cc;
+  --bg: #060b17;
+  --ink: #ecf4ff;
+  --muted: #a9bfd9;
   --glass: rgba(255, 255, 255, 0.08);
-  --stroke: rgba(255, 255, 255, 0.16);
-  --danger-a: #9124d8;
-  --danger-b: #f44673;
-  --heal-a: #2ce0d0;
-  --heal-b: #4aa8ff;
+  --stroke: rgba(173, 216, 255, 0.22);
 }
-
 * { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: "Vazirmatn", "Noto Naskh Arabic", "Tahoma", "Segoe UI", sans-serif;
-  scroll-behavior: smooth;
-}
-
-body {
-  overflow-x: hidden;
-  text-align: right;
-  line-height: 1.8;
-}
-
-
-/* Atmospheric scientific background */
-.atmosphere {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(140% 90% at 50% 15%, #121a2d 0%, #06070f 60%, #04050b 100%);
-}
-
-.aurora {
-  position: absolute;
-  width: 46vw;
-  height: 46vw;
-  filter: blur(72px);
-  opacity: 0.35;
-  border-radius: 50%;
-  animation: drift 14s ease-in-out infinite alternate;
-}
-.aurora-a { top: -10vw; left: -8vw; background: #2d5fff; }
-.aurora-b { right: -12vw; bottom: -16vw; background: #9d2dd9; animation-duration: 18s; }
-
-.network .line {
-  position: absolute;
-  border: 1px solid rgba(134, 198, 255, 0.18);
-  width: 45vw;
-  transform-origin: left;
-}
-.l1 { top: 18%; left: 12%; transform: rotate(12deg); }
-.l2 { top: 40%; right: 8%; transform: rotate(-9deg); }
-.l3 { bottom: 26%; left: 18%; transform: rotate(-16deg); }
-.l4 { bottom: 14%; right: 22%; transform: rotate(20deg); }
-
-.particle-field {
-  position: absolute;
-  inset: 0;
-}
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #8cc9ff;
-  box-shadow: 0 0 12px #8cc9ff;
-  animation: floatUp linear infinite;
-  opacity: 0.65;
-}
-
-.top-bar {
-  position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1100px, calc(100% - 2rem));
-  padding: 0.8rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 30;
-}
-.brand { font-weight: 600; letter-spacing: 0.03em; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: "Vazirmatn","Tahoma",sans-serif; scroll-behavior: smooth; }
+body { overflow-x: hidden; text-align: right; line-height: 1.8; }
+.atmosphere { position: fixed; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 50% 15%, #13243f 0%, #080d1a 60%, #050810 100%); }
+.aurora { position: absolute; width: 40vw; height: 40vw; border-radius: 50%; filter: blur(70px); opacity: .34; animation: drift 14s ease-in-out infinite alternate; }
+.aurora-a { top: -10vw; right: -6vw; background: #2a72ff; }
+.aurora-b { left: -10vw; bottom: -8vw; background: #8b33ce; }
+.particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #86daff; box-shadow: 0 0 12px #86daff; animation: floatUp linear infinite; opacity: .6; }
+.top-bar { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: min(1100px, calc(100% - 2rem)); padding: .8rem 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 30; }
+.brand { font-weight: 700; }
 nav a { color: var(--muted); margin-inline-start: 1rem; text-decoration: none; }
 nav a:hover { color: var(--ink); }
-
-.panel {
-  min-height: 100svh;
-  padding: 8rem 1.5rem 3rem;
-  display: grid;
-  place-items: center;
-}
+.panel { min-height: 100svh; padding: 8rem 1.5rem 3rem; display: grid; place-items: center; }
 .cinematic { min-height: 110svh; }
-
-.glass {
-  background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.03));
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(18px);
-  border-radius: 18px;
-  box-shadow: 0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
-}
-
-.content {
-  width: min(840px, 100%);
-  padding: clamp(1.2rem, 2vw, 2rem);
-}
-.content h1 { font-size: clamp(2.1rem, 5vw, 4.1rem); margin: 0.2rem 0 1rem; line-height: 1.4; }
-.content h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); margin-top: 0; line-height: 1.55; }
-.content p, li { color: var(--muted); line-height: 2; font-size: clamp(1rem, 1.4vw, 1.1rem); }
-.eyebrow { letter-spacing: 0.02em; font-size: 0.88rem; color: #9cd6ff; margin-bottom: 0.35rem; }
-
-.grid.two-col {
-  width: min(1000px, 100%);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.state { padding: 1.5rem; }
-.healthy { box-shadow: inset 0 0 50px rgba(44, 224, 208, 0.15); }
-.diseased { box-shadow: inset 0 0 50px rgba(244, 70, 115, 0.18); }
-
-.cta {
-  padding: 0.8rem 1.15rem;
-  border-radius: 999px;
-  border: 1px solid #68d0ff;
-  background: rgba(66, 152, 255, 0.15);
-  color: var(--ink);
-  cursor: pointer;
-}
-
-/* Hero glowing brain structure */
-.brain-wrap { margin-top: 1.4rem; position: relative; width: min(560px, 90vw); aspect-ratio: 1.5/1; }
-.brain-glow {
-  position: absolute;
-  inset: 15% 10%;
-  border-radius: 50%;
-  filter: blur(45px);
-  background: radial-gradient(circle, rgba(113,188,255,0.65), rgba(67,98,255,0.05));
-}
-.brain-svg { position: relative; width: 100%; height: 100%; }
-.brain-svg .hemi {
-  fill: rgba(108, 152, 255, 0.3);
-  stroke: rgba(165, 228, 255, 0.92);
-  stroke-width: 3.2;
-  filter: drop-shadow(0 0 16px rgba(95, 165, 255, 0.24));
-}
-.brain-svg .inner-contours path {
-  fill: none;
-  stroke: rgba(152, 201, 255, 0.46);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-}
-.brain-svg .network-lines path {
-  fill: none;
-  stroke: rgba(124, 240, 255, 0.98);
-  stroke-width: 2.35;
-  stroke-linecap: round;
-  stroke-dasharray: 5 9;
-  filter: drop-shadow(0 0 7px rgba(119, 226, 255, 0.8));
-  animation: neuralPulse 2.9s linear infinite;
-}
-.brain-svg .signal-nodes circle {
-  fill: #c1f6ff;
-  filter: drop-shadow(0 0 9px rgba(130, 244, 255, 0.95));
-  animation: nodePulse 1.7s ease-in-out infinite;
-}
-.brain-svg .signal-nodes circle:nth-child(2n) { animation-delay: .35s; }
-.brain-svg .signal-nodes circle:nth-child(3n) { animation-delay: .7s; }
-.brain-svg .hippocampus path {
-  fill: rgba(94, 255, 230, 0.32);
-  stroke: rgba(130, 255, 233, 0.98);
-  stroke-width: 2.2;
-  filter: drop-shadow(0 0 12px rgba(92, 255, 220, 0.7));
-  animation: hippocampusGlow 3.2s ease-in-out infinite;
-}
-.brain-svg .plaque-dots circle {
-  fill: rgba(255, 118, 172, 0.9);
-  filter: drop-shadow(0 0 7px rgba(255, 100, 168, 0.95));
-  animation: plaqueGlow 2.7s ease-in-out infinite;
-}
-.brain-svg .plaque-dots circle:nth-child(2n) { animation-delay: .5s; }
-.brain-svg .tau-marks path {
-  fill: rgba(182, 96, 255, 0.66);
-  stroke: rgba(255, 122, 176, 0.82);
-  stroke-width: 1.1;
-}
-
-.compare-brain {
-  position: relative;
-  margin-top: 0.7rem;
-  height: auto;
-  aspect-ratio: 1.6 / 1;
-  border-radius: 16px;
-  background:
-    radial-gradient(65% 70% at 50% 46%, rgba(108, 170, 255, 0.26), rgba(20, 28, 54, 0.2) 60%, transparent 100%),
-    radial-gradient(120% 90% at 50% 10%, rgba(89, 165, 255, 0.2), transparent 65%);
-}
-.compare-brain::before {
-  content: "";
-  position: absolute;
-  inset: 9% 12%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(118, 176, 255, 0.34), rgba(118, 176, 255, 0.04) 70%, transparent);
-  filter: blur(20px);
-  pointer-events: none;
-}
-.healthy-brain .network-lines path {
-  stroke: rgba(130, 255, 255, 0.98);
-  stroke-width: 2.5;
-  filter: drop-shadow(0 0 8px rgba(96, 255, 241, 0.95));
-}
-.healthy-brain .signal-nodes circle {
-  fill: #bffcff;
-  filter: drop-shadow(0 0 10px rgba(95, 255, 244, 0.9));
-}
-.healthy-brain .hippocampus path {
-  fill: rgba(84, 255, 216, 0.4);
-  stroke: rgba(148, 255, 233, 1);
-}
-.healthy-brain .plaque-dots circle:nth-child(n+3) { display: none; }
-
-.diseased-brain .hemi {
-  fill: rgba(128, 88, 155, 0.32);
-  stroke: rgba(196, 142, 217, 0.84);
-}
-.diseased-brain .inner-contours path {
-  stroke: rgba(196, 152, 224, 0.36);
-}
-.diseased-brain .network-lines path {
-  stroke: rgba(170, 160, 218, 0.58);
-  stroke-width: 1.9;
-  stroke-dasharray: 4 12;
-  filter: drop-shadow(0 0 4px rgba(155, 134, 203, 0.5));
-  animation: diseaseFlicker 2.3s steps(2, end) infinite;
-}
-.diseased-brain .hippocampus path {
-  transform: translate(8px, 8px) scale(0.9);
-  transform-box: fill-box;
-  transform-origin: center;
-  fill: rgba(112, 142, 161, 0.16);
-  stroke: rgba(144, 176, 210, 0.5);
-}
-.diseased-brain .plaque-dots circle {
-  fill: rgba(255, 98, 148, 0.95);
-  filter: drop-shadow(0 0 8px rgba(255, 82, 116, 0.85));
-}
-.diseased-brain .plaque-dots circle:nth-child(n+6) {
-  display: inline;
-}
-.diseased-brain .tau-marks path {
-  fill: rgba(184, 72, 255, 0.9);
-  stroke: rgba(255, 88, 132, 0.98);
-  stroke-width: 1.4;
-  animation: diseaseFlicker 1.8s steps(2, end) infinite;
-}
-.diseased-brain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  box-shadow: inset 0 0 52px rgba(190, 44, 84, 0.25);
-  background: radial-gradient(75% 60% at 50% 55%, rgba(230, 66, 112, 0.14), transparent 80%);
-}
-.svg-symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
-
-/* Mid-story visual motifs */
-.node-map { position: relative; height: 170px; }
-.node { position: absolute; width: 15px; height: 15px; border-radius: 50%; background: #88ceff; box-shadow: 0 0 16px #88ceff; animation: pulse 2.4s infinite; }
-.n1 { left: 12%; top: 62%; } .n2 { left: 33%; top: 28%; animation-delay: .4s; }
-.n3 { left: 55%; top: 50%; animation-delay: .8s; } .n4 { left: 72%; top: 18%; animation-delay: 1.2s; }
-.n5 { left: 84%; top: 65%; animation-delay: 1.6s; }
-
-.disease-tone .content { border-color: rgba(222, 69, 130, 0.4); }
-.recovery-tone .content { border-color: rgba(61, 223, 197, 0.4); }
-
-.amyloid-cluster {
-  margin-top: 1rem;
-  height: 110px;
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 20% 35%, rgba(242, 98, 151, 0.8), transparent 24%),
-    radial-gradient(circle at 45% 55%, rgba(177, 83, 232, 0.9), transparent 26%),
-    radial-gradient(circle at 72% 40%, rgba(255, 91, 132, 0.76), transparent 22%);
-}
-.tangle { height: 110px; background: repeating-linear-gradient(125deg, rgba(191,95,255,.7) 0 8px, rgba(240,80,120,.7) 8px 16px); border-radius: 12px; opacity: .7; }
-.synapse-row { display: flex; gap: .8rem; margin-top: 1.2rem; }
-.synapse-row span { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,100,146,.4); border: 1px solid rgba(255,120,177,.6); animation: fade 2s infinite; }
-.synapse-row span:nth-child(odd){ animation-delay: .45s; }
-
-.pulse-lanes span {
-  display: block;
-  height: 9px;
-  border-radius: 6px;
-  margin: 0.7rem 0;
-  background: linear-gradient(90deg, rgba(57,238,207,.35), rgba(74,168,255,.95), rgba(57,238,207,.35));
-  animation: slide 2.6s infinite linear;
-}
-.pathway { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
-.pathway .source, .pathway .target { padding: .7rem 1rem; border-radius: 10px; background: rgba(255,255,255,.08); }
-.arrow { flex: 1; height: 2px; background: linear-gradient(90deg, transparent, #66f5de, #68acff, transparent); position: relative; }
-.arrow::after { content: ""; position: absolute; right: 20%; top: -4px; border: 6px solid transparent; border-left-color: #68acff; }
-.final .content { text-align: center; }
-
-@keyframes drift { from { transform: translate(0, 0); } to { transform: translate(3vw, -2vw); } }
-@keyframes floatUp { from { transform: translateY(100vh) scale(.7); } to { transform: translateY(-10vh) scale(1.2); } }
-@keyframes pulse { 0%,100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.35); opacity: 1; } }
-@keyframes fade { 0%,100% { opacity: .4; } 50% { opacity: .95; } }
-@keyframes slide { from { transform: translateX(-6px);} to { transform: translateX(6px);} }
-@keyframes neuralPulse { to { stroke-dashoffset: -34; } }
-@keyframes plaqueGlow { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
-@keyframes hippocampusGlow { 0%,100% { filter: drop-shadow(0 0 5px rgba(77, 255, 216, .2)); } 50% { filter: drop-shadow(0 0 14px rgba(102, 255, 225, .85)); } }
-@keyframes diseaseFlicker { 0%,100% { opacity: .92; } 40% { opacity: .52; } 75% { opacity: .76; } }
-@keyframes nodePulse { 0%,100% { transform: scale(1); opacity: .75; } 50% { transform: scale(1.35); opacity: 1; } }
-
-@media (max-width: 820px) {
-  .grid.two-col { grid-template-columns: 1fr; }
-  nav { display: none; }
-  .top-bar { justify-content: center; }
-  .brain-wrap { width: min(520px, 96vw); }
-  .compare-brain { max-width: 460px; margin-inline: auto; }
-}
-
-.section-intro { margin-bottom: 1rem; text-align: center; }
-.state ul { margin: 0.6rem 0 0; padding-inline-start: 1.2rem; }
-.pathway { direction: rtl; }
-.pathway .arrow::after { right: auto; left: 20%; border-left-color: transparent; border-right-color: #68acff; }
+.glass { background: linear-gradient(150deg, rgba(220,240,255,.14), rgba(255,255,255,.03)); border: 1px solid var(--stroke); border-radius: 20px; backdrop-filter: blur(18px); box-shadow: 0 20px 55px rgba(2,8,24,.45), inset 0 1px 0 rgba(255,255,255,.17); }
+.content { width: min(840px, 100%); padding: clamp(1.2rem,2vw,2rem); }
+.content h1 { font-size: clamp(2.1rem, 5vw, 4rem); margin: .2rem 0 1rem; }
+.content h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-top: 0; }
+.content p, li { color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.08rem); }
+.eyebrow { color: #9ddfff; font-size: .88rem; }
+.cta { padding: .8rem 1.15rem; border-radius: 999px; border: 1px solid #68d0ff; background: rgba(66,152,255,.15); color: var(--ink); cursor: pointer; }
+.scan-card, .compare-visual, .mini-map { width: min(680px, 92vw); margin-top: 1rem; height: 340px; position: relative; border-radius: 22px; overflow: hidden; background: radial-gradient(90% 70% at 50% 20%, rgba(74,148,255,.25), rgba(14,27,53,.1) 55%, transparent 100%), linear-gradient(180deg, rgba(131,196,255,.12), rgba(115,72,198,.1)); border: 1px solid rgba(166, 220, 255, .25); }
+.scan-ring { position: absolute; inset: 14% 23%; border-radius: 50%; border: 1px solid rgba(150,225,255,.5); box-shadow: inset 0 0 55px rgba(121,194,255,.2), 0 0 45px rgba(102,185,255,.22); }
+.scan-ring::before, .scan-ring::after { content: ""; position: absolute; border-radius: 50%; inset: 16%; border: 1px dashed rgba(133,241,255,.35); animation: spin 15s linear infinite; }
+.scan-ring::after { inset: 34%; animation-duration: 10s; animation-direction: reverse; }
+.neural-map { position: absolute; inset: 8%; }
+.neural-map::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 36%, #b2f8ff 0 2px, transparent 3px), radial-gradient(circle at 50% 42%, #96ecff 0 2px, transparent 3px), radial-gradient(circle at 65% 58%, #80daff 0 2px, transparent 3px), radial-gradient(circle at 42% 62%, #98f6ff 0 2px, transparent 3px), linear-gradient(120deg, transparent 25%, rgba(140,236,255,.5) 26% 27%, transparent 28%), linear-gradient(205deg, transparent 38%, rgba(146,210,255,.45) 39% 40%, transparent 41%), linear-gradient(65deg, transparent 58%, rgba(132,244,255,.5) 59% 60%, transparent 61%); filter: drop-shadow(0 0 10px rgba(120,228,255,.6)); }
+.alz-map::before { background: radial-gradient(circle at 30% 36%, #9db5d4 0 2px, transparent 3px), radial-gradient(circle at 52% 41%, #a884cc 0 2px, transparent 3px), radial-gradient(circle at 66% 62%, #7f8eaf 0 2px, transparent 3px), radial-gradient(circle at 45% 62%, #9ca2bf 0 2px, transparent 3px), linear-gradient(120deg, transparent 25%, rgba(145,116,195,.4) 26% 27%, transparent 29%), linear-gradient(205deg, transparent 38%, rgba(118,90,154,.38) 39% 40%, transparent 42%), linear-gradient(65deg, transparent 58%, rgba(130,95,179,.3) 59% 60%, transparent 62%); }
+.plaque-cluster { position: absolute; width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(circle, rgba(255,71,133,.9), rgba(134,28,164,.4) 65%, transparent 80%); filter: blur(.2px) drop-shadow(0 0 12px rgba(255,78,133,.6)); }
+.p1 { top: 26%; left: 26%; }
+.p2 { top: 60%; left: 56%; }
+.hotspot { position: absolute; padding: .2rem .55rem; border-radius: 999px; font-size: .8rem; color: #dff7ff; background: rgba(17,40,67,.72); border: 1px solid rgba(135,238,255,.6); box-shadow: 0 0 18px rgba(116,231,255,.3); animation: tagPulse 2.7s ease-in-out infinite; }
+.dim { opacity: .45; border-color: rgba(178,190,220,.5); }
+.h-hip { right: 38%; top: 58%; }
+.h-amy { right: 21%; top: 28%; }
+.h-tau { left: 20%; top: 44%; }
+.h-syn { left: 26%; top: 24%; }
+.grid.two-col { width: min(1040px, 100%); display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.state { padding: 1.4rem; }
+.healthy-panel { box-shadow: inset 0 0 60px rgba(48,225,220,.15); }
+.alz-panel { box-shadow: inset 0 0 65px rgba(198,75,164,.22); }
+.mini-map { height: 140px; width: 100%; }
+.mini-map .hotspot { top: 38%; right: 42%; }
+.pathway { margin-top: .8rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .75rem; }
+.source,.target { padding: .4rem .8rem; border-radius: 10px; border: 1px solid rgba(138,230,255,.5); background: rgba(31,76,119,.35); text-align: center; }
+.arrow { width: 90px; height: 2px; background: linear-gradient(90deg, rgba(123,214,255,.2), rgba(123,214,255,1)); position: relative; }
+.arrow::after { content:""; position: absolute; left: -4px; top: -4px; border: 5px solid transparent; border-right-color: #9ce9ff; }
+@media (max-width: 900px) { .grid.two-col { grid-template-columns: 1fr; } .scan-card, .compare-visual { height: 300px; } }
+@keyframes floatUp { from { transform: translateY(8px);} to { transform: translateY(-22px);} }
+@keyframes drift { from { transform: translate(0,0);} to { transform: translate(25px,-18px);} }
+@keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+@keyframes tagPulse { 50% { box-shadow: 0 0 26px rgba(116,231,255,.5);} }
