@@ -8,12 +8,27 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: "Vazirmatn","Tahoma",sans-serif; scroll-behavior: smooth; }
 body { overflow-x: hidden; text-align: right; line-height: 1.8; }
+.panel { opacity: .58; filter: saturate(.84); transform: translateY(16px); transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease; }
+.panel.is-active { opacity: 1; transform: translateY(0); filter: saturate(1.1); }
+.panel.is-past { opacity: .42; filter: saturate(.7) brightness(.86); }
 .atmosphere { position: fixed; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 50% 15%, #13243f 0%, #080d1a 60%, #050810 100%); }
+.atmosphere::after { content: ""; position: absolute; inset: 0; transition: background 500ms ease, opacity 500ms ease; opacity: .34; pointer-events: none; }
+body.story-healthy .atmosphere::after { background: radial-gradient(80% 60% at 50% 35%, rgba(100,206,255,.35), transparent 68%); }
+body.story-disease .atmosphere::after { background: radial-gradient(80% 60% at 50% 35%, rgba(176,56,180,.4), rgba(227,59,105,.22) 55%, transparent 72%); }
+body.story-recovery .atmosphere::after { background: radial-gradient(80% 60% at 50% 35%, rgba(42,238,227,.32), rgba(81,215,132,.2) 56%, transparent 72%); }
 .aurora { position: absolute; width: 40vw; height: 40vw; border-radius: 50%; filter: blur(70px); opacity: .34; animation: drift 14s ease-in-out infinite alternate; }
 .aurora-a { top: -10vw; right: -6vw; background: #2a72ff; }
 .aurora-b { left: -10vw; bottom: -8vw; background: #8b33ce; }
 .particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #86daff; box-shadow: 0 0 12px #86daff; animation: floatUp linear infinite; opacity: .6; }
 .top-bar { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: min(1100px, calc(100% - 2rem)); padding: .8rem 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 30; }
+.story-progress { position: fixed; left: 1rem; top: 6rem; width: 170px; padding: .8rem; z-index: 28; }
+.story-progress ol { margin: 0; padding: 0; list-style: none; }
+.story-progress li { color: var(--muted); font-size: .83rem; padding: .3rem .45rem; border-inline-start: 2px solid rgba(149,207,255,.25); opacity: .6; transition: all 280ms ease; }
+.story-progress li.is-active { color: #f6fbff; opacity: 1; border-color: #75ddff; text-shadow: 0 0 14px rgba(124,235,255,.75); box-shadow: inset 0 0 18px rgba(117,221,255,.18); }
+.status-panel { position: fixed; right: 1rem; bottom: 1rem; width: min(265px, calc(100% - 1rem)); z-index: 26; padding: .8rem 1rem; }
+.status-panel h3 { margin: 0 0 .5rem; font-size: 1rem; }
+.status-panel p { margin: .15rem 0; color: var(--muted); font-size: .9rem; }
+.status-panel strong { color: var(--ink); font-weight: 600; }
 .brand { font-weight: 700; }
 nav a { color: var(--muted); margin-inline-start: 1rem; text-decoration: none; }
 nav a:hover { color: var(--ink); }
@@ -48,12 +63,26 @@ nav a:hover { color: var(--ink); }
 .alz-panel { box-shadow: inset 0 0 65px rgba(198,75,164,.22); }
 .mini-map { height: 140px; width: 100%; }
 .mini-map .hotspot { top: 38%; right: 42%; }
+.disease-tone .plaque-cluster { opacity: .2; transform: scale(.85); transition: opacity 450ms ease, transform 450ms ease; }
+.panel.is-active.disease-tone .plaque-cluster,
+.panel.is-active .alz-panel .plaque-cluster { opacity: .95; transform: scale(1.1); }
+.panel.is-active.disease-tone .hotspot,
+.panel.is-active .alz-panel .hotspot { border-color: rgba(255,93,180,.85); color: #ffe5fb; box-shadow: 0 0 22px rgba(219,72,181,.65); animation-duration: 1.4s; }
+.panel.is-active.disease-tone .neural-map,
+.panel.is-active .alz-panel .neural-map { filter: contrast(1.08) saturate(1.25) blur(.2px); }
+.panel.is-active.recovery-tone .neural-map::after,
+.panel.is-active.recovery-tone .mini-map::after { content: ""; position: absolute; inset: 12%; background: repeating-linear-gradient(120deg, rgba(94,255,230,.38) 0 2px, transparent 2px 16px); mix-blend-mode: screen; opacity: .75; animation: flow 4s linear infinite; }
+.panel.is-active.recovery-tone .hotspot { color: #dafffd; border-color: rgba(74,255,218,.85); box-shadow: 0 0 20px rgba(66,255,221,.6); }
+.panel.is-active.recovery-tone .content::after { content: "BDNF  •  جریان خون  •  نوروپلاستیسیته"; display: block; margin-top: .55rem; font-size: .82rem; color: #9cfff2; }
 .pathway { margin-top: .8rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .75rem; }
 .source,.target { padding: .4rem .8rem; border-radius: 10px; border: 1px solid rgba(138,230,255,.5); background: rgba(31,76,119,.35); text-align: center; }
 .arrow { width: 90px; height: 2px; background: linear-gradient(90deg, rgba(123,214,255,.2), rgba(123,214,255,1)); position: relative; }
 .arrow::after { content:""; position: absolute; left: -4px; top: -4px; border: 5px solid transparent; border-right-color: #9ce9ff; }
-@media (max-width: 900px) { .grid.two-col { grid-template-columns: 1fr; } .scan-card, .compare-visual { height: 300px; } }
+@media (max-width: 1100px) { .story-progress { left: .5rem; width: 146px; } }
+@media (max-width: 900px) { .grid.two-col { grid-template-columns: 1fr; } .scan-card, .compare-visual { height: 300px; } .story-progress { display: none; } .status-panel { width: calc(100% - 1rem); left: .5rem; right: .5rem; bottom: .5rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .panel { transform: none; } }
 @keyframes floatUp { from { transform: translateY(8px);} to { transform: translateY(-22px);} }
 @keyframes drift { from { transform: translate(0,0);} to { transform: translate(25px,-18px);} }
 @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
 @keyframes tagPulse { 50% { box-shadow: 0 0 26px rgba(116,231,255,.5);} }
+@keyframes flow { from { transform: translateX(-14px); } to { transform: translateX(14px); } }
