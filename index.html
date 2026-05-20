@@ -7,17 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Atmospheric background layer: particles + gradients + neural links -->
     <div class="atmosphere" aria-hidden="true">
       <div class="aurora aurora-a"></div>
       <div class="aurora aurora-b"></div>
       <div id="particle-field" class="particle-field"></div>
-      <div class="network">
-        <span class="line l1"></span>
-        <span class="line l2"></span>
-        <span class="line l3"></span>
-        <span class="line l4"></span>
-      </div>
     </div>
 
     <header class="top-bar glass">
@@ -31,68 +24,24 @@
     </header>
 
     <main>
-      <!-- Hero section -->
       <section id="hero" class="panel cinematic">
         <div class="content glass">
           <p class="eyebrow">روایت علمی تصویری</p>
           <h1>آلزایمر و تمرینات ورزشی</h1>
-          <p>
-            سفری تصویری از تخریب ارتباطات مغز تا فعال شدن مسیرهای محافظتی با ورزش.
-          </p>
+          <p>سفری تصویری از تخریب ارتباطات مغز تا فعال شدن مسیرهای محافظتی با ورزش.</p>
           <button class="cta" data-scroll="#healthy-vs-alz">ورود به مغز</button>
         </div>
-        <div class="brain-wrap" aria-hidden="true">
-          <div class="brain-glow"></div>
-          <!-- SVG Brain System Start -->
-          <svg class="brain-svg hero-brain" viewBox="0 0 700 430" role="img" aria-label="نمای علمی مغز">
-            <defs>
-              <linearGradient id="heroStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#99ddff" />
-                <stop offset="100%" stop-color="#8b9bff" />
-              </linearGradient>
-            </defs>
-            <g class="hemispheres">
-              <path class="hemi left" d="M330 85 C255 48,165 72,130 146 C98 214,124 301,200 342 C252 370,302 361,334 320 C345 247,343 167,330 85 Z"/>
-              <path class="hemi right" d="M370 85 C445 48,535 72,570 146 C602 214,576 301,500 342 C448 370,398 361,366 320 C355 247,357 167,370 85 Z"/>
-            </g>
-            <g class="inner-contours">
-              <path d="M192 150 C240 112,283 108,327 150"/>
-              <path d="M178 212 C232 182,286 189,332 226"/>
-              <path d="M222 280 C264 262,292 264,326 286"/>
-              <path d="M508 150 C460 112,417 108,373 150"/>
-              <path d="M522 212 C468 182,414 189,368 226"/>
-              <path d="M478 280 C436 262,408 264,374 286"/>
-            </g>
-            <g class="network-lines">
-              <path d="M195 175 C240 150,285 160,334 200"/>
-              <path d="M190 245 C252 220,290 235,336 270"/>
-              <path d="M505 175 C460 150,415 160,366 200"/>
-              <path d="M510 245 C448 220,410 235,364 270"/>
-              <path d="M292 125 C328 152,338 183,350 212"/>
-              <path d="M408 125 C372 152,362 183,350 212"/>
-            </g>
-            <g class="signal-nodes">
-              <circle cx="242" cy="160" r="6"/><circle cx="283" cy="228" r="5"/><circle cx="320" cy="182" r="4.5"/>
-              <circle cx="458" cy="162" r="6"/><circle cx="418" cy="232" r="5"/><circle cx="380" cy="184" r="4.5"/>
-            </g>
-            <g class="hippocampus">
-              <path d="M302 268 C315 251,338 248,350 263 C363 248,385 251,398 268 C387 290,370 303,350 305 C330 303,313 290,302 268 Z"/>
-            </g>
-            <g class="plaque-dots">
-              <circle cx="225" cy="125" r="4"/><circle cx="268" cy="285" r="3.5"/><circle cx="432" cy="120" r="4"/>
-              <circle cx="468" cy="282" r="3.5"/><circle cx="350" cy="140" r="3.2"/>
-            </g>
-            <g class="tau-marks">
-              <path d="M248 204 q12 -8 22 2 q-12 10 -22 -2 z"/>
-              <path d="M430 210 q12 -8 22 2 q-12 10 -22 -2 z"/>
-              <path d="M338 242 q13 -9 25 3 q-13 10 -25 -3 z"/>
-            </g>
-          </svg>
-          <!-- SVG Brain System End -->
+
+        <div class="scan-card glass" aria-hidden="true">
+          <div class="scan-ring"></div>
+          <div class="neural-map healthy-map"></div>
+          <span class="hotspot h-hip">هیپوکامپ</span>
+          <span class="hotspot h-amy">آمیلوئید بتا</span>
+          <span class="hotspot h-tau">تاو</span>
+          <span class="hotspot h-syn">سیناپس</span>
         </div>
       </section>
 
-      <!-- مغز سالم vs مغز درگیر آلزایمر section -->
       <section id="healthy-vs-alz" class="panel">
         <div class="content glass section-intro">
           <h2>مغز سالم در برابر مغز درگیر آلزایمر</h2>
@@ -100,11 +49,12 @@
         <div class="grid two-col">
           <article class="glass state healthy">
             <h2>مغز سالم</h2>
-            <!-- SVG Brain System Start -->
-            <svg class="brain-svg compare-brain healthy-brain" viewBox="0 0 520 320" aria-hidden="true">
-              <use href="#brain-shape-base"></use>
-            </svg>
-            <!-- SVG Brain System End -->
+            <div class="compare-visual healthy-panel" aria-hidden="true">
+              <div class="scan-ring"></div>
+              <div class="neural-map healthy-map"></div>
+              <span class="hotspot h-hip">هیپوکامپ</span>
+              <span class="hotspot h-syn">سیناپس</span>
+            </div>
             <ul>
               <li>اتصال‌های سیناپسی (Synapse) متراکم و کارآمد</li>
               <li>متابولیسم گلوکز پایدار و بهینه</li>
@@ -113,11 +63,15 @@
           </article>
           <article class="glass state diseased">
             <h2>مغز درگیر آلزایمر</h2>
-            <!-- SVG Brain System Start -->
-            <svg class="brain-svg compare-brain diseased-brain" viewBox="0 0 520 320" aria-hidden="true">
-              <use href="#brain-shape-base"></use>
-            </svg>
-            <!-- SVG Brain System End -->
+            <div class="compare-visual alz-panel" aria-hidden="true">
+              <div class="scan-ring"></div>
+              <div class="neural-map alz-map"></div>
+              <div class="plaque-cluster p1"></div>
+              <div class="plaque-cluster p2"></div>
+              <span class="hotspot h-hip dim">هیپوکامپ</span>
+              <span class="hotspot h-amy">آمیلوئید بتا</span>
+              <span class="hotspot h-tau">تاو</span>
+            </div>
             <ul>
               <li>کاهش سیناپس‌ها (Synapse) و نورون‌ها</li>
               <li>تجمع پلاک‌های آمیلوئید بتا (Amyloid-β)</li>
@@ -127,127 +81,64 @@
         </div>
       </section>
 
-      <!-- درون مغز چه اتفاقی می‌افتد؟ section -->
       <section id="inside-brain" class="panel">
         <div class="content glass">
           <h2>درون مغز چه اتفاقی می‌افتد؟</h2>
           <p>ناحیه‌های مسئول حافظه، جهت‌یابی و کارکرد اجرایی به‌تدریج آسیب‌پذیر می‌شوند.</p>
-          <div class="node-map" aria-hidden="true">
-            <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
-            <span class="node n4"></span><span class="node n5"></span>
-          </div>
+          <div class="mini-map" aria-hidden="true"><span class="hotspot">سیناپس</span></div>
         </div>
       </section>
 
-      <!-- تجمع آمیلوئید بتا section -->
       <section id="amyloid" class="panel disease-tone">
         <div class="content glass">
           <h2>تجمع آمیلوئید بتا</h2>
           <p>رسوبات خارج‌سلولی آمیلوئید بتا (Amyloid-β) الگوی پیام‌رسانی را مختل کرده و به سلول‌های اطراف فشار وارد می‌کنند.</p>
-          <div class="cluster amyloid-cluster" aria-hidden="true"></div>
+          <div class="mini-map plaque" aria-hidden="true"><span class="hotspot">آمیلوئید بتا</span></div>
         </div>
       </section>
 
-      <!-- گره‌های تاو section -->
       <section id="tau" class="panel disease-tone">
         <div class="content glass">
           <h2>گره‌های تاو</h2>
           <p>گره‌های درون‌سلولی تاو (Tau) ریزلوله‌ها را ناپایدار کرده و مسیرهای انتقال در نورون را مختل می‌کنند.</p>
-          <div class="tangle" aria-hidden="true"></div>
+          <div class="mini-map tau" aria-hidden="true"><span class="hotspot">تاو</span></div>
         </div>
       </section>
 
-      <!-- فروپاشی سیناپس‌ها section -->
       <section id="synapse" class="panel disease-tone">
         <div class="content glass">
           <h2>فروپاشی سیناپس‌ها</h2>
           <p>با تضعیف سیناپس‌ها (Synapse)، هماهنگی زمانی شبکه عصبی از بین می‌رود و افت شناختی تشدید می‌شود.</p>
-          <div class="synapse-row" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
+          <div class="mini-map syn" aria-hidden="true"><span class="hotspot">سیناپس</span></div>
         </div>
       </section>
 
-      <!-- پاسخ مغز به ورزش section -->
       <section id="exercise-response" class="panel recovery-tone">
         <div class="content glass">
           <h2>پاسخ مغز به ورزش</h2>
           <p>فعالیت بدنی جریان خون، پیام‌رسانی تغذیه‌ای و مسیرهای پشتیبان نوروپلاستیسیته را تقویت می‌کند.</p>
-          <div class="pulse-lanes" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
+          <div class="mini-map heal" aria-hidden="true"><span class="hotspot">هیپوکامپ</span></div>
         </div>
       </section>
 
-      <!-- مسیر عضله تا حافظه section -->
       <section id="muscle-brain" class="panel recovery-tone">
         <div class="content glass pathway-card">
           <h2>مسیر عضله تا حافظه</h2>
           <p>مایوکاین‌ها و پیام‌های عروقی می‌توانند التهاب را تنظیم کرده و از حافظه و شناخت پشتیبانی کنند؛ از جمله از مسیرهای مرتبط با BDNF.</p>
           <div class="pathway" aria-hidden="true">
-            <div class="source">عضله</div>
-            <div class="arrow"></div>
-            <div class="target">مغز</div>
+            <div class="source">عضله</div><div class="arrow"></div><div class="target">مغز</div>
           </div>
         </div>
       </section>
 
-      <!-- Final message section -->
       <section id="final-message" class="panel cinematic final">
         <div class="content glass">
           <h2>حرکت، یک پیام زیستی است</h2>
-          <p>
-            در این روایت، آلزایمر تنها یک روند تخریبی نیست؛ بلکه سامانه‌ای پویاست که مداخلات هدفمند می‌توانند مسیر خطر آن را تغییر دهند.
-          </p>
+          <p>در این روایت، آلزایمر تنها یک روند تخریبی نیست؛ بلکه سامانه‌ای پویاست که مداخلات هدفمند می‌توانند مسیر خطر آن را تغییر دهند.</p>
           <button class="cta" data-scroll="#hero">بازگشت به آغاز روایت</button>
         </div>
       </section>
     </main>
-
-    <svg width="0" height="0" class="svg-symbols" aria-hidden="true" focusable="false">
-      <defs>
-        <g id="brain-shape-base">
-          <g class="hemispheres">
-            <path class="hemi left" d="M240 62 C184 34,118 52,90 108 C65 162,84 231,140 264 C179 285,217 278,240 248 C248 191,247 123,240 62 Z"/>
-            <path class="hemi right" d="M280 62 C336 34,402 52,430 108 C455 162,436 231,380 264 C341 285,303 278,280 248 C272 191,273 123,280 62 Z"/>
-          </g>
-          <g class="inner-contours">
-            <path d="M138 112 C175 84,207 82,238 113"/>
-            <path d="M126 160 C169 138,208 143,240 173"/>
-            <path d="M154 218 C187 204,210 204,236 220"/>
-            <path d="M382 112 C345 84,313 82,282 113"/>
-            <path d="M394 160 C351 138,312 143,280 173"/>
-            <path d="M366 218 C333 204,310 204,284 220"/>
-          </g>
-          <g class="network-lines">
-            <path d="M136 130 C174 108,210 116,244 147"/>
-            <path d="M132 187 C182 166,214 178,244 209"/>
-            <path d="M384 129 C346 108,310 116,276 147"/>
-            <path d="M388 187 C338 166,306 178,276 209"/>
-            <path d="M214 95 C241 116,250 136,260 159"/>
-            <path d="M306 95 C279 116,270 136,260 159"/>
-          </g>
-          <g class="signal-nodes">
-            <circle cx="176" cy="118" r="5.5"/><circle cx="208" cy="174" r="4.5"/><circle cx="230" cy="140" r="4"/>
-            <circle cx="344" cy="120" r="5.5"/><circle cx="311" cy="174" r="4.5"/><circle cx="290" cy="140" r="4"/>
-          </g>
-          <g class="hippocampus">
-            <path d="M220 208 C230 194,247 192,260 204 C273 192,290 194,300 208 C291 225,277 235,260 237 C243 235,229 225,220 208 Z"/>
-          </g>
-          <g class="plaque-dots">
-            <circle cx="160" cy="92" r="3.2"/><circle cx="192" cy="220" r="2.8"/><circle cx="324" cy="90" r="3.2"/>
-            <circle cx="352" cy="220" r="2.8"/><circle cx="262" cy="102" r="2.6"/>
-            <circle cx="222" cy="134" r="2.6"/><circle cx="288" cy="210" r="2.4"/><circle cx="334" cy="132" r="2.7"/>
-          </g>
-          <g class="tau-marks">
-            <path d="M180 156 q9 -6 16 2 q-8 8 -16 -2 z"/>
-            <path d="M324 159 q9 -6 16 2 q-8 8 -16 -2 z"/>
-            <path d="M251 184 q10 -7 18 2 q-9 8 -18 -2 z"/>
-          </g>
-        </g>
-      </defs>
-    </svg>
-
     <script src="app.js"></script>
   </body>
 </html>
